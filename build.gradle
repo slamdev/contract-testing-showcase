@@ -14,3 +14,9 @@ targetCompatibility = JavaVersion.VERSION_1_8
 repositories {
     jcenter()
 }
+
+dependencies {
+    testCompile 'lv.ctco.cukes:cukes-rest:0.0.6'
+    testCompile 'ch.qos.logback:logback-classic:1.2.3'
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+}
