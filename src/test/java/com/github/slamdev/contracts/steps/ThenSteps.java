@@ -1,5 +1,6 @@
 package com.github.slamdev.contracts.steps;
 
+import com.github.slamdev.contracts.Contracts.HeadersExcluder;
 import com.github.slamdev.contracts.Contracts.ResponseStateSaver;
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
@@ -8,7 +9,6 @@ import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import lv.ctco.cukes.core.internal.context.GlobalWorldFacade;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,8 +54,7 @@ public class ThenSteps {
     }
 
     private List<Header> headers(Response response) {
-        List<String> excludeHeaderNames = Arrays.stream(world.get("excludeHeadersFromVerification")
-                .or("").split(",")).map(String::trim).collect(toList());
+        List<String> excludeHeaderNames = HeadersExcluder.get(world);
         return response.headers().asList().stream()
                 .filter(h -> !excludeHeaderNames.contains(h.getName())).collect(toList());
     }

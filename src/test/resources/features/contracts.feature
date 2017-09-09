@@ -3,7 +3,7 @@ Feature: Contracts API
   Background:
     Given baseUri for "LEGACY" contract is "https://httpbin.org"
     And baseUri for "NEW" contract is "https://httpbin.org"
-    And let variable "excludeHeadersFromVerification" equal to "Date, X-Processed-Time"
+    And exclude headers from verification: Date, X-Processed-Time
 
   Scenario: Verify some endpoint
     Given content type is "application/json"
