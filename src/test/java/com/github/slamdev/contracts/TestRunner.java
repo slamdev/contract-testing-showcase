@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         format = {"pretty", "json:build/cucumber.json", "lv.ctco.cukes.core.formatter.CukesJsonFormatter:build/cucumber2.json"},
         features = "classpath:features",
-        glue = "lv.ctco.cukes",
+        glue = {"lv.ctco.cukes", "com.github.slamdev.contracts.steps"},
         strict = true
 )
 public class TestRunner {
