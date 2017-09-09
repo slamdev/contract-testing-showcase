@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'io.spring.dependency-management' version '1.0.3.RELEASE'
+}
+
+group 'com.github.slamdev'
+
+apply from: "${rootProject.projectDir}/gradle/validation.gradle"
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    jcenter()
+}
